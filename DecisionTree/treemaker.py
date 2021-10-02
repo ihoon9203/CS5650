@@ -15,33 +15,24 @@ def predictTree(df,attributes,label,max_tree_depth,model):
     val_labels = dict()
     decision(df,attributes,val_list,label,map,sorted_model,0,max_tree_depth)
 
-    for att in attributes.keys():
-        print("new attribute")
-        print(att)
-        for val in attributes[att]:
-            print(val)
-            adf = df.groupby([att,'labels']).size()[val]
-            adf_list = pd.Series(data = adf, index = label)
-            max_index = adf_list.idxmax()
-            print(max_index)
-        count+=1
-        if count == max_tree_depth:
-            break
-
 def decision(df, attributes,val_list,label, map,sorted_model, i, depth):
     if i == depth:
         return
     att = list(sorted_model.keys())[i]
     listofattributes = list(sorted_model.keys())[:i+1]
     print(att)
+    df_dict = dict()
     for val in attributes[att]:
         print(val)
-        if i + 1 < depth:
-            split_df = df.groupby(att)
-            new_df = split_df.get_group(str(val))
-            indexsList = new_df.index.tolist()
-            
+        split_df = df.groupby(att)
+        new_df = split_df.get_group(str(val))
+        length = len(new_df.index)
+        
             # decision(df, attributes, val_list, label, map, sorted_model, i+1, depth)
+    if i + 1 < depth:
+        indexList = new_df.index.tolist()
+        decision(new_df, attributes,map,sorted_model, i+1, depth)
+        
         
 
         
