@@ -66,8 +66,10 @@ if __name__ == '__main__':
     # cost function on test data
     df_test = pd.read_csv("./MLisFun/LinearRegression/concrete/test.csv",header=None)
     df_test.columns = ['Cement','Slag','Fly ash','Water','SP','Coarse Aggr','Fine Aggr','y']
+    print("learned weight vector for bgd:", ws[3])
     print("cost function for batch gradient descent")
     gd.test_cost(df_test, ws[3])
+    print("learned weight vector for sgd:", ws[1])
     print("cost function for stochastic gradient descent")
     gd.test_cost(df_test, wss[1])
     # stochastic gradient descent
