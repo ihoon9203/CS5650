@@ -31,3 +31,9 @@ dataframe using voted perceptron algorithm.
 in the main.py you can set learning rate and number of epochs. If you run the main.py file, you can
 get the weight vectors of each perceptron algorithm learned from training dataset and can test their accuracy on the
 test dataset. 
+
+5. SVM
+gradientdescent.py: this file contians training methods for stochastic gradient algorithm each with different learning schedule.
+subgradient_descent function uses learning schedule l = l/(1+(l*t/a))
+subgradient_descent_2 function uses learning schedule l = l/(1+t))
+test.py: this file uses weight vector from training result and tests for accuracy of classification on scale of 0 as lowest and 1 as highest.
