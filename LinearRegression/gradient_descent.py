@@ -47,6 +47,10 @@ def batch(df, epochs, r, tol): # dataframe, epochs, learning_rate, tolerance
     error = 0
     iterations = 0
     size = df.shape[0]
+    # use previous attribute vector to calculate new y_hat
+    # get the |y_hat - y| -> calculate error based on question instruction? -> error
+    # and using that, get gradient descent delta attribute vector
+    # using that gradient descent get new attribute vector
     for i in range(0,epochs):
         iterations += 1
         y_exp = np.dot(X,w)+bias
